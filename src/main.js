@@ -1,5 +1,21 @@
 import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createPinia } from 'pinia'
+import DataTable from 'datatables.net-vue3';
+import DataTablesCore from 'datatables.net';
+ 
 
-createApp(App).mount('#app')
+import App from './AppScope.vue'
+// import Auth from './AuthScope.vue'
+// import Toasted from 'vue-toasted';
+
+
+import router from './router'
+
+const app = createApp(App)
+
+DataTable.use(DataTablesCore);
+app.use(createPinia())
+app.use(router)
+// app.use(Toasted);
+
+app.mount('#app')
